@@ -57,7 +57,6 @@ private heroes:Heroe[] = [
 
 
   constructor() {
-    console.log("servicio listo para usarse");
   }
 
   getHeroes():Heroe[]{
@@ -67,6 +66,35 @@ private heroes:Heroe[] = [
   getHeroe( id:string ):Heroe{
     return this.heroes[id];
   }
+
+  getHeroeName( id:string):Heroe{
+    let termino= id.toLowerCase();
+    let myHeroe:Heroe;
+
+    for(let heroe of this.heroes){
+      let nombre = heroe.nombre.toLowerCase();
+      if( nombre.indexOf (termino) >=0){
+        myHeroe = heroe;
+      }
+    }
+    return myHeroe;
+  }
+
+  buscaHeroe( termino:string ):Heroe[]{
+
+    let heroesArr:Heroe[] = [];
+    termino = termino.toLowerCase();
+
+    for( let heroe of this.heroes ){
+
+      let nombre = heroe.nombre.toLowerCase();
+      if( nombre.indexOf (termino) >=0){
+        heroesArr.push( heroe );
+      }
+    }
+    return heroesArr;
+  }
+
 }
 
 
