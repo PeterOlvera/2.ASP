@@ -17,10 +17,9 @@ export class NavbarComponent implements OnInit {
   }
 
 buscaHeroe( palabra:string ){
-  if(palabra.length<=0){
-    palabra='0';
+  if(palabra.length>0){
+    this.router.navigate( ['/buscador',palabra] );
   }
-  this.router.navigate( ['/buscador',palabra] );
 }
 
 }

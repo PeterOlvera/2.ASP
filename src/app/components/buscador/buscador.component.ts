@@ -13,12 +13,14 @@ import {HeroesService, Heroe} from '../../services/heroes.service';
 export class BuscadorComponent implements OnInit {
 
   heroes:Heroe[];
+  termino:string;
 
   constructor( private activatedRoute:ActivatedRoute,
                 private _heroesService:HeroesService,
                 private router:Router) {
     this.activatedRoute.params.subscribe( params =>{
       this.heroes = this._heroesService.buscaHeroe( params.id);
+      this.termino=params.id;
     });
   }
 
